@@ -22,4 +22,13 @@ module.exports = class Controllers {
             console.log(error);
         }
     }
+
+    static async getAllUsers(req, res) {
+        try {
+            const data = await Users.find();
+            ResHelpers.res(res, 'success', data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 } 
