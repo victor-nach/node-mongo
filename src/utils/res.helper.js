@@ -6,4 +6,11 @@ module.exports = class ResHelper {
             data,
         })
     }
+
+    static resErr(res, error, status = 400) {
+        res.status(status).json({
+            status,
+            error,
+        })
+    }
 }
