@@ -15,10 +15,7 @@ module.exports = class Db {
                 mongoose.connect(mongoURI, options);
         
                 const db = mongoose.connection;
-                db.on('error', (err) => { 
-                    console.log({ err });
-                    throw new Error('Could not connect to db');
-                } );
+                db.on('error', (err) => { throw new Error('Could not connect to db') });
         
                 // this would work even if the db doesn't exist but won't work if there's a problem with connecting to the mongo server
                 db.once('open', () => {
