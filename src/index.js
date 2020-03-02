@@ -4,9 +4,9 @@ const { ResHelpers } = require("./utils");
 const routes = require('./routes');
 
 const Db = require('./db');
-
-Db.connect().then( () => {
-    const app = express();
+const app = express();
+Db.connect()
+    
     const PORT = process.env.PORT || 5000;
     
     app.use(bodyParser.json());
@@ -17,4 +17,5 @@ Db.connect().then( () => {
     app.get('/', (req, res) => ResHelpers.res(res, "Welcome !!"));
     
     app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
-});
+
+module.exports = app;
